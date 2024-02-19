@@ -1,0 +1,16 @@
+---
+providers:
+  config:
+    class: octodns.provider.yaml.YamlProvider
+    directory: ./config
+    default_ttl: 3600
+  cloudflare:
+    class: octodns.provider.cloudflare.CloudflareProvider
+    token: env/CLOUDFLARE_TOKEN
+
+zones:
+  thephp.foundation.:
+    sources:
+      - config
+    targets:
+      - cloudflare

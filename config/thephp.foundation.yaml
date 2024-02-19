@@ -1,0 +1,44 @@
+---
+'':
+  - type: A
+    values:
+      - 185.199.108.153
+      - 185.199.109.153
+      - 185.199.110.153
+      - 185.199.111.153
+
+  - type: TXT
+    value: v=spf1 include:spf.efwd.registrar-servers.com ~all
+
+  - type: MX
+    values:
+      - exchange: eforward5.registrar-servers.com.
+        preference: 20
+      - exchange: eforward4.registrar-servers.com.
+        preference: 15
+      - exchange: eforward1.registrar-servers.com.
+        preference: 10
+      - exchange: eforward2.registrar-servers.com.
+        preference: 10
+      - exchange: eforward3.registrar-servers.com.
+        preference: 10
+
+'*.preview':
+  type: A
+  value: 188.166.29.216
+
+_acme-challenge.preview:
+  type: TXT
+  value: o4PbAie3D35RaW0lRGmeMHx8aRH025K9Jzk6t1enHx0
+
+preview:
+  type: A
+  value: 188.166.29.216
+
+www:
+  type: A
+  values:
+    - 185.199.108.153
+    - 185.199.109.153
+    - 185.199.110.153
+    - 185.199.111.153
