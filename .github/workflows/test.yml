@@ -1,0 +1,18 @@
+on:
+  pull_request:
+    branches:
+      - main
+
+name: Test
+jobs:
+  test:
+    name: Sync DNS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: octodns sync
+        uses: docker://parkr/octodns:v0.9.10
+        env:
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        with:
+          args: octodns-sync --config-file ./config.yaml

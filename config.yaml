@@ -1,0 +1,22 @@
+---
+providers:
+  config:
+    class: octodns.provider.yaml.YamlProvider
+    directory: ./config
+    default_ttl: 3600
+  namecheap:
+    class: octodns_lexicon.LexiconProvider
+    lexicon_config:
+      provider_name: namecheap
+      namecheap:
+        auth_username: env/LEXICON_NAMECHEAP_AUTH_USERNAME
+        auth_token: env/LEXICON_NAMECHEAP_AUTH_TOKEN
+        auth_client_ip: env/LEXICON_NAMECHEAP_AUTH_CLIENT_IP
+        auth_sandbox: env/LEXICON_NAMECHEAP_AUTH_SANDBOX
+
+zones:
+  thephp.foundation.:
+    sources:
+      - config
+    targets:
+      - namecheap
